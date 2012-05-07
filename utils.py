@@ -10,7 +10,7 @@ Reference:
 
 import sqlite3
 import os
-
+from serial import Serial
 data_utils = None
 
 def GetDataUtils():
@@ -57,6 +57,16 @@ class DataUtils:
     def GetBottomToolbarConfig(self):
         pass
     
+class GSS_Serial(Serial):
+    def __init__(self, port, baudrate):
+        super(GSS_Serial, self).__init__(port=port, baudrate=baudrate)
+        self.__map={}
+        
+    def set_data(self, key, val):
+        self.__map[key] = val
+        
+    def get_data(self, key):
+        return self.__map[key]
     
 if __name__ == '__main__':
     utils = GetDataUtils()

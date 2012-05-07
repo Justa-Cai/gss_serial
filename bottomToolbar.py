@@ -294,10 +294,10 @@ class BottomToolBar(gtk.Bin):
                 item.quick_caption = dlg.entry_caption.get_text()
                 item.quick_text = dlg.entry_quickInput.get_text()
                 c = self.conn.cursor()
-                str = 'UPDATE DATA SET Caption="%s", QuickText="%s" WHERE id=%d' % (item.quick_caption, item.quick_text, item.id)
-                c.execute(str)
-                str = 'UPDATE CONFIG SET COMBOX_POS=%d ' % self.combox_cur
-                c.execute(str)
+                s = 'UPDATE DATA SET Caption="%s", QuickText="%s" WHERE id=%d' % (item.quick_caption, str(item.quick_text), item.id)
+                c.execute(s )
+                s  = 'UPDATE CONFIG SET COMBOX_POS=%d ' % self.combox_cur
+                c.execute(s)
                 self.conn.commit()
                 c.close()
                 self.LoadConfigData()

@@ -284,7 +284,6 @@ class TestDlg(gtk.Window):
             conn.commit()
             # save history
         dlg.destroy()
-        pass
     
     def OnConnectDlg(self, w):
         conn = GetDataUtils().GetConnect()
@@ -299,7 +298,6 @@ class TestDlg(gtk.Window):
             print dlg.GetData()
         
         dlg.destroy()
-        pass
 
 
 if __name__ == '__main__':
